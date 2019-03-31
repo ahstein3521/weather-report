@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useReducer } from 'react';
+import React, { useEffect, useState } from 'react';
 import zipcodes from 'zipcodes';
 
 import Report from './components/Report';
 import SearchForm from './components/Input';
 import ErrorPopup from './components/ErrorPopup';
-import queryString from './utils/queryString';
+
 
 import './styles/index.css';
 
@@ -60,7 +60,7 @@ const App = props => {
       {
         reports.map((location, i) => 
           <Report 
-            key={location.zipcode}
+            key={location.zip}
             dispatchError={err => setError(err)}
             onDelete={() => onDelete(i)}
             location={location}

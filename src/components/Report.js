@@ -52,18 +52,23 @@ const Report = ({ location, onDelete, dispatchError }) => {
 	return (
 		<Card style={{margin: 5, maxWidth: 400}}>		
 			<CardContent className="card-content">
-				<h2> {location.city}, {location.state }  { location.zip }</h2>  
+				<h2> {location.city}, {location.state }</h2>
+				<h3>{ location.zip }</h3>  
 				 {/* <h4>{ report.coord.lon} &deg; , { report.coord.lat } &deg;</h4>*/}
 				{
 					report ?
 					<React.Fragment>
-						<h1>{ report.main.temp }&deg;F  </h1> 
-						<img 
-							alt="weather icon"
-							src={"http://openweathermap.org/img/w/" + report.weather[0].icon + ".png"}
-						/>
-						<h3> { report.weather[0].description } </h3>
-						<small>Last checked: {report.updatedAt} </small>					
+						<h1>{ report.main.temp }&deg;F  </h1>	
+						<div className="temp-display">
+							<b>{ report.weather[0].description } </b>
+							<img 
+								alt="weather icon"
+								src={"http://openweathermap.org/img/w/" + report.weather[0].icon + ".png"}
+							/>
+						</div>
+						<p>
+							<small>Last checked: {report.updatedAt} </small>
+						</p>					
 					</React.Fragment>
 					:
 					<div style={{width: '100%', minHeight: 150}}>
