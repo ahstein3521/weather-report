@@ -11,23 +11,13 @@ const ErrorPopup = props => {
         vertical: 'top',
         horizontal: 'right',
       }}
-      autoHideDuration={5000}
+      autoHideDuration={2000}
       open={Boolean(props.message)}
       onClose={props.onClose}
       ContentProps={{
         'aria-describedby': 'message-id',
       }}
       message={<span id="message-id">{props.message}</span>}
-      action={[
-        <IconButton
-          key="close"
-          aria-label="Close"
-          color="inherit"
-          onClick={props.onClose}
-        >
-          <CloseIcon />
-        </IconButton>
-      ]}
     />
   );
 }

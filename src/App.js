@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useReducer } from 'react';
+import zipcodes from 'zipcodes';
+
 import Report from './components/Report';
 import SearchForm from './components/Input';
 import ErrorPopup from './components/ErrorPopup';
-
-import uuid from './utils/uuid';
 import queryString from './utils/queryString';
 
 import './styles/index.css';
@@ -17,18 +17,33 @@ const App = props => {
   useEffect(() => {
   	// load in weather report of users current location automatically
     navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude }}) => {
+      const userLocation = zipcodes.lookupByCoords(latitude, longitude);
+
+      if (userLocation) {
+        console.log({ userLocation });
+        setReports([ userLocation ]);
+      }
       //fetchReport({ lat: latitude, lon: longitude });
+    }, positionError => {
+      console.log('Could not load user\'s location data');
+      //setError(positionError.message);
     })
   },[]);
   
 
   function onSubmit(zipcode) {
     // only allow unique zipcodes
-    if (reports.indexOf(zipcode) !== -1) {
+    if (reports.some(v => v.zip === zipcode)) {
       return setError(`A weather report for ${zipcode} is already being displayed`);
     } 
 
-    setReports([...reports, zipcode]);
+    const location = zipcodes.lookup(zipcode);
+ 
+    if (!location) {
+      return setError('Invalid U.S. zipcode');
+    }
+
+    setReports([...reports, location]);
   }
 
   function onDelete(index) {
@@ -43,13 +58,12 @@ const App = props => {
       <SearchForm onSubmit={onSubmit}/>
       <div className="report-wrapper">
       {
-        reports.map((zipcode, i) => 
+        reports.map((location, i) => 
           <Report 
-            key={zipcode}
-            index={i}
+            key={location.zipcode}
             dispatchError={err => setError(err)}
-            onDelete={onDelete}
-            zipcode={zipcode}
+            onDelete={() => onDelete(i)}
+            location={location}
           />
         )
       }

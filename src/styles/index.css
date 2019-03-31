@@ -18,11 +18,13 @@ form {
   margin: 40px auto;
 }
 
-.card-content {
+.card-content h2 {
   text-align: center;
 }
 
 .report-wrapper {
   display: flex;
-  width: 100%;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
 }
