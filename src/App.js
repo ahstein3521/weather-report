@@ -13,7 +13,7 @@ const App = props => {
 
   const [ reports, setReports ] = useState([]);
   const [ error, setError ] = useState('');
-
+  
   useEffect(() => {
   	// load in weather report of users current location automatically
     navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude }}) => {
@@ -23,9 +23,9 @@ const App = props => {
         console.log({ userLocation });
         setReports([ userLocation ]);
       }
-      //fetchReport({ lat: latitude, lon: longitude });
     }, positionError => {
-      console.log('Could not load user\'s location data');
+      console.log('Could not load user\'s location data, loading random location');
+      setReports([...reports, zipcodes.random() ])
       //setError(positionError.message);
     })
   },[]);
