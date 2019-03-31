@@ -21,10 +21,7 @@ const SearchForm = props => {
 	}
 
 	return (
-		<form 
-			style={{width: 500,margin: '40px auto'}}
-			onSubmit={handleOnSubmit}
-		>
+		<form onSubmit={handleOnSubmit}>
 			<TextField 
 				fullWidth
 				label="Search by zipcode"

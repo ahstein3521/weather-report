@@ -9,7 +9,20 @@ body {
   background-color: #f5f4f4;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+main {
+  width: 100%;
+}
+
+form {
+  width: 500px;
+  margin: 40px auto;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.report-wrapper {
+  display: flex;
+  width: 100%;
 }
