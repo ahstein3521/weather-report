@@ -21,20 +21,12 @@ const App = props => {
     })
   },[]);
   
-  function triggerErrorPopup(message) {
-    // open the popup (or overwrite existing popup message)
-    setError(message);
-    // auto hide popup after 5 seconds by setting error message to falsey empty string
-    setTimeout(() => {
-      // check that user didnt manually close the popup already
-      if (error) {
-        setError('');
-      }
-    }, 5000);
-  }
 
   function onSubmit(zipcode) {
-    if (reports.indexOf(zipcode) !== -1) return;
+    // only allow unique zipcodes
+    if (reports.indexOf(zipcode) !== -1) {
+      return setError(`A weather report for ${zipcode} is already being displayed`);
+    } 
 
     setReports([...reports, zipcode]);
   }
@@ -55,7 +47,7 @@ const App = props => {
           <Report 
             key={zipcode}
             index={i}
-            dispatchError={triggerErrorPopup}
+            dispatchError={err => setError(err)}
             onDelete={onDelete}
             zipcode={zipcode}
           />
