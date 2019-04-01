@@ -1,13 +1,13 @@
 {
   "main.css": "/weather-report/static/css/main.c302adf0.chunk.css",
-  "main.js": "/weather-report/static/js/main.65facb24.chunk.js",
-  "main.js.map": "/weather-report/static/js/main.65facb24.chunk.js.map",
+  "main.js": "/weather-report/static/js/main.7c2c4127.chunk.js",
+  "main.js.map": "/weather-report/static/js/main.7c2c4127.chunk.js.map",
   "runtime~main.js": "/weather-report/static/js/runtime~main.70c695bf.js",
   "runtime~main.js.map": "/weather-report/static/js/runtime~main.70c695bf.js.map",
   "static/js/2.3621bd72.chunk.js": "/weather-report/static/js/2.3621bd72.chunk.js",
   "static/js/2.3621bd72.chunk.js.map": "/weather-report/static/js/2.3621bd72.chunk.js.map",
   "index.html": "/weather-report/index.html",
-  "precache-manifest.a8c69f5e18d477c02d9c74cfe49f16c5.js": "/weather-report/precache-manifest.a8c69f5e18d477c02d9c74cfe49f16c5.js",
+  "precache-manifest.8f9c4f733954b555bc417c0d80471117.js": "/weather-report/precache-manifest.8f9c4f733954b555bc417c0d80471117.js",
   "service-worker.js": "/weather-report/service-worker.js",
   "static/css/main.c302adf0.chunk.css.map": "/weather-report/static/css/main.c302adf0.chunk.css.map"
 }
